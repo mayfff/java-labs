@@ -3,27 +3,32 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.print("Введіть число N (до 1000): ");
-        final int N = input.nextInt();
+        int N;
+        do {
+            System.out.print("Введіть натуральне число N (до 1000): ");
+            N = input.nextInt();
+        } while (N < 1 || N > 1000);
         input.close();
 
+        int result = getNumber(N);
+        System.out.printf("Кількість надпростих чисел менших за %d: %d", N, result);
+    }
+
+    public static int getNumber(int N) {
         int counter = 0;
-
         for (int i = 2; i <= N; i++) {
-                if (isPrime(i)) {
-                    int temp = i, reversed = 0;
-                    while (temp > 0) {
-                        reversed = reversed * 10 + temp % 10;
-                        temp /= 10;
-                    }
-                    if (isPrime(reversed)) {
-                        counter++;
-                        System.out.println(i + " " + reversed);
-                    }
+            if (isPrime(i)) {
+                int temp = i, reversed = 0;
+                while (temp > 0) {
+                    reversed = reversed * 10 + temp % 10;
+                    temp /= 10;
                 }
+                if (isPrime(reversed)) {
+                    counter++;
+                }
+            }
         }
-
-        System.out.printf("Кількість надпростих чисел від 1 до N: %d", counter);
+        return counter;
     }
 
     public static boolean isPrime(int n) {
