@@ -15,6 +15,7 @@ public class ShapeView {
 
     public void displayTotalAreaByType(Class<?> shapeType, double totalArea) {
         System.out.println("Total area for " + shapeType.getSimpleName() + "s is: " + totalArea);
+        System.out.println("\n");
     }
 
     public void displaySortedByArea(Shape[] shapes) {
