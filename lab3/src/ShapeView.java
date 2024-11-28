@@ -13,8 +13,8 @@ public class ShapeView {
         System.out.println("\n");
     }
 
-    public void displayTotalAreaByType(Class<?> shapeType, double totalArea) {
-        System.out.println("Total area for " + shapeType.getSimpleName() + "s is: " + totalArea);
+    public void displayTotalAreaByType(String shapeType, double totalArea) {
+        System.out.println("Total area for " + shapeType + "s is: " + totalArea);
         System.out.println("\n");
     }
 

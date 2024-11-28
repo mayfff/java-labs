@@ -21,9 +21,9 @@ public class ShapeController {
         view.displayTotalArea(totalArea);
     }
 
-    public void calculateAndDisplayTotalAreaByClass (Class<?> shapeType) {
+    public void calculateAndDisplayTotalAreaByClass(String shapeType) {
         double totalArea = Arrays.stream(shapes)
-                .filter(shape -> shape.getClass().equals(shapeType))
+                .filter(shape -> shape.getClass().getSimpleName().equals(shapeType))
                 .mapToDouble(Shape::calcArea).sum();
         view.displayTotalAreaByType(shapeType, totalArea);
     }
